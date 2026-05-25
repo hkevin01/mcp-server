@@ -1,0 +1,60 @@
+{
+  "$id": "https://mcp-server.local/schemas/commonTypes.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "definitions": {
+    "toolEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool", "source", "timestamp", "data"],
+      "properties": {
+        "tool": { "type": "string" },
+        "source": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "data": {
+          "oneOf": [
+            { "type": "object" },
+            { "type": "array" },
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "summary", "status"],
+      "properties": {
+        "key": { "type": "string" },
+        "summary": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    },
+    "searchHit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "domain", "title", "snippet"],
+      "properties": {
+        "id": { "type": "string" },
+        "domain": { "type": "string" },
+        "title": { "type": "string" },
+        "snippet": { "type": "string" }
+      }
+    },
+    "assuranceRecord": {
+      "type": "object",
+      "required": ["requirementId", "status", "owner"],
+      "properties": {
+        "requirementId": { "type": "string" },
+        "status": { "type": "string" },
+        "owner": { "type": "string" },
+        "evidence": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
