@@ -1,5 +1,7 @@
 # MCP Server Scaffolding
 
+<!-- markdownlint-disable MD033 -->
+
 Production-oriented Model Context Protocol server scaffolding for TypeScript. This repository gives you a working starting point for building MCP servers that need more than a bare transport layer. It already includes transport bootstrapping, tool registration, schema validation, execution timeouts, context resolution, plugin hooks, logging, authentication hooks, and a test harness.
 
 The goal of this project is not only to expose tools to an MCP client, but to do it in a way that remains understandable when the server grows. A real MCP server usually has to answer three questions at once: what tools exist, what inputs are valid, and what context should be injected before those tools run. This scaffold separates those concerns so new tools can be added without reworking the runtime.
@@ -372,3 +374,5 @@ Note: This table is derived from `package.json` and should stay synchronized wit
 This scaffold is most valuable when you preserve its boundaries. Let the runtime own transport and execution policy, let tools own client-facing capability definitions, and let services own external integration details. That architecture is what keeps an MCP server understandable after it grows beyond a single demo tool.
 
 If you keep that separation intact, this repository can scale from a simple local prototype to a more serious internal tool platform without forcing a full rewrite of the server core.
+
+<!-- markdownlint-enable MD033 -->
